@@ -44,5 +44,6 @@ Contains screenshots of the application  as a part of my Bachelor's thesis.
 
 ## Notes
 This thesis is currently undergoing final stages of development, and has not yet been graded or reviewed. Finalised project will be uploaded once the grading is completed. 
-Content and reports are in Finnish, as required by the course.
+
+Content and reports are in Finnish, as planned from the start of the thesis.
 
