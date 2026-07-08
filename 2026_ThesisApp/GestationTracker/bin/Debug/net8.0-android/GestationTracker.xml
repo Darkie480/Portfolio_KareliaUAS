@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GestationTracker</name>
+    </assembly>
+    <members>
+        <member name="T:GestationTracker.Models.Cats">
+            <summary>
+            Base-class for each individual Cat
+            </summary>
+        </member>
+        <member name="T:GestationTracker.Models.Pregnancy">
+            <summary>
+            Base-class for each unique pregnancy that the Cats-class starts
+            </summary>
+        </member>
+        <member name="P:GestationTracker.Models.Pregnancy.Trimester">
+            <summary>
+            Shows the ongoing trimester in the pregnancy.
+            </summary>
+        </member>
+        <member name="M:GestationTracker.Services.CatService.InitializeAsync">
+            <summary>
+            Runs _isInitialized once in order to make the program run smoother.
+            Reads Json-file and deserializes the list to more readable form.
+            </summary>
+            <returns></returns>
+            
+        </member>
+        <member name="T:GestationTracker.ViewModels.BaseViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:GestationTracker.ViewModels.BaseViewModel.isBusy"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:GestationTracker.ViewModels.BaseViewModel.title"/>
+        </member>
+        <member name="T:GestationTracker.ViewModels.AddCatViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="M:GestationTracker.ViewModels.AddCatViewModel.LoadCatBreeds">
+            <summary>
+            Loads the picker-element with JSON-list of cat breeds 
+            when the view is first opened.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatId">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catId"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatName">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catName"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatRegName">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catRegName"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatRegNr">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catRegNr"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatBreed">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catBreed"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatDateofBirth">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catDateofBirth"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.PhotoPath">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.photoPath"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatInsuranceNumber">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catInsuranceNumber"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CatInsuranceCompany">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.catInsuranceCompany"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.MatingDate">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.matingDate"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.IsPregnant">
+            <inheritdoc cref="F:GestationTracker.ViewModels.AddCatViewModel.isPregnant"/>
+        </member>
+        <member name="M:GestationTracker.ViewModels.AddCatViewModel.OnCatIdChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:GestationTracker.ViewModels.AddCatViewModel.CatId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:GestationTracker.ViewModels.AddCatViewModel.CatId"/> is changed.</remarks>
+        </member>
+        <member name="F:GestationTracker.ViewModels.AddCatViewModel.takePhotoCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.AddCatViewModel.TakePhotoCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.TakePhotoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.AddCatViewModel.TakePhoto"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.AddCatViewModel.pickPhotoCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.AddCatViewModel.PickPhotoCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.PickPhotoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.AddCatViewModel.PickPhoto"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.AddCatViewModel.saveCatCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.AddCatViewModel.SaveCatCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.SaveCatCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.AddCatViewModel.SaveCat"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.AddCatViewModel.cancelCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.AddCatViewModel.CancelCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.AddCatViewModel.CancelCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.AddCatViewModel.Cancel"/>.</summary>
+        </member>
+        <member name="T:GestationTracker.ViewModels.CatDetailViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatId">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catId"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.Cat">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.cat"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatRegNr">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catRegNr"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatRegName">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catRegName"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatBreed">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catBreed"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.MatingDate">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.matingDate"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatInsuranceNumber">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catInsuranceNumber"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.CatInsuranceCompany">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatDetailViewModel.catInsuranceCompany"/>
+        </member>
+        <member name="M:GestationTracker.ViewModels.CatDetailViewModel.OnCatIdChanged(System.String)">
+            <summary>Executes the logic for when <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.CatId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.CatId"/> is changed.</remarks>
+        </member>
+        <member name="M:GestationTracker.ViewModels.CatDetailViewModel.OnCatChanged(GestationTracker.Models.Cats)">
+            <summary>Executes the logic for when <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.Cat"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.Cat"/> is changed.</remarks>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatDetailViewModel.loadCatCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.LoadCatCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.LoadCatCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatDetailViewModel.LoadCat"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatDetailViewModel.updatePregnancyCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.UpdatePregnancyCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.UpdatePregnancyCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatDetailViewModel.UpdatePregnancy"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatDetailViewModel.editCatCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.EditCatCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.EditCatCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatDetailViewModel.EditCat"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatDetailViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatDetailViewModel.GoBack"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatDetailViewModel.deleteCatCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatDetailViewModel.DeleteCatCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatDetailViewModel.DeleteCatCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatDetailViewModel.DeleteCat"/>.</summary>
+        </member>
+        <member name="T:GestationTracker.ViewModels.CatListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.Cats">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatListViewModel.cats"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.SelectedCat">
+            <inheritdoc cref="F:GestationTracker.ViewModels.CatListViewModel.selectedCat"/>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatListViewModel.loadCatsCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatListViewModel.LoadCatsCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.LoadCatsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatListViewModel.LoadCats"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatListViewModel.goToDetailCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatListViewModel.GoToDetailCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.GoToDetailCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatListViewModel.GoToDetail(GestationTracker.Models.Cats)"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatListViewModel.goToAddCatCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatListViewModel.GoToAddCatCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.GoToAddCatCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatListViewModel.GoToAddCat"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.CatListViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.CatListViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.CatListViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:GestationTracker.ViewModels.CatListViewModel.Refresh"/>.</summary>
+        </member>
+        <member name="T:GestationTracker.ViewModels.InfoPageViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.InfoPageViewModel.Title">
+            <inheritdoc cref="F:GestationTracker.ViewModels.InfoPageViewModel.title"/>
+        </member>
+        <member name="T:GestationTracker.ViewModels.PregnancyInfoViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedSection">
+            <inheritdoc cref="F:GestationTracker.ViewModels.PregnancyInfoViewModel.selectedSection"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedStage">
+            <inheritdoc cref="F:GestationTracker.ViewModels.PregnancyInfoViewModel.selectedStage"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.Stages">
+            <inheritdoc cref="F:GestationTracker.ViewModels.PregnancyInfoViewModel.stages"/>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.Title">
+            <inheritdoc cref="F:GestationTracker.ViewModels.PregnancyInfoViewModel.title"/>
+        </member>
+        <member name="M:GestationTracker.ViewModels.PregnancyInfoViewModel.OnSelectedSectionChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedSection"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedSection"/> is changed.</remarks>
+        </member>
+        <member name="M:GestationTracker.ViewModels.PregnancyInfoViewModel.OnSelectedStageChanged(GestationTracker.Models.PregnancyStage)">
+            <summary>Executes the logic for when <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedStage"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectedStage"/> is changed.</remarks>
+        </member>
+        <member name="F:GestationTracker.ViewModels.PregnancyInfoViewModel.showSectionCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.ShowSectionCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.ShowSectionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:GestationTracker.ViewModels.PregnancyInfoViewModel.ShowSection(System.Object)"/>.</summary>
+        </member>
+        <member name="F:GestationTracker.ViewModels.PregnancyInfoViewModel.selectStageCommand">
+            <summary>The backing field for <see cref="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectStageCommand"/>.</summary>
+        </member>
+        <member name="P:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectStageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:GestationTracker.ViewModels.PregnancyInfoViewModel.SelectStage(System.Object)"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatRegName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatRegName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatRegNr">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatRegNr" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatBreed">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatBreed" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatDateofBirth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatDateofBirth" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PhotoPath">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PhotoPath" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatInsuranceNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatInsuranceNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CatInsuranceCompany">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CatInsuranceCompany" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.MatingDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "MatingDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsPregnant">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsPregnant" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cat">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cat" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Cats">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Cats" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedCat">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedCat" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedSection">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedSection" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedStage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedStage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Stages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Stages" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatRegName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatRegName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatRegNr">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatRegNr" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatBreed">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatBreed" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatDateofBirth">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatDateofBirth" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PhotoPath">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PhotoPath" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatInsuranceNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatInsuranceNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CatInsuranceCompany">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CatInsuranceCompany" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.MatingDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "MatingDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsPregnant">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsPregnant" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cat">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cat" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Cats">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Cats" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedCat">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedCat" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedSection">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedSection" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedStage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedStage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Stages">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Stages" generated properties.</summary>
+        </member>
+    </members>
+</doc>

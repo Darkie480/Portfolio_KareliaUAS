@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:GestationTracker.ViewModels"
+             xmlns:models="clr-namespace:GestationTracker.Models"
+             x:Class="GestationTracker.Views.PregnancyInfoPage"
+             x:DataType="viewmodels:PregnancyInfoViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Primary}">
+
+    <Shell.TitleView>
+        <Label Text="{Binding Title}"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"/>
+    </Shell.TitleView>
+
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto">
+            <VerticalStackLayout Spacing="10">
+                <Button Text="Ensimmäinen kolmannes" 
+                        Command="{Binding SelectStageCommand}"
+                        CommandParameter="1"
+                        WidthRequest="250"
+                        HorizontalOptions="Center" Margin="0,25,0,5"/>
+                <Button Text="Toinen kolmannes"
+                        Command="{Binding SelectStageCommand}"
+                        CommandParameter="2"
+                        WidthRequest="250" HorizontalOptions="Center" Margin="0,5"/>
+                <Button Text="Viimeinen kolmannes" 
+                        Command="{Binding SelectStageCommand}"
+                        CommandParameter="3"
+                        WidthRequest="250" HorizontalOptions="Center" Margin="0,5"/>
+                <Button Text="Synnytys" 
+                        Command="{Binding SelectStageCommand}"
+                        CommandParameter="4"
+                        WidthRequest="250" HorizontalOptions="Center" Margin="0,5"/>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout IsVisible="{Binding HasSelectedStage}" Grid.Row="1">
+                <!--Title of the selected pregnancy stage-->
+                <Label Text="{Binding SelectedStage.Title}"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="15,10"
+                   Grid.Row="2"/>
+
+                <!--Secondary title and description from the selected pregnancy stage-->
+                <CollectionView ItemsSource="{Binding SelectedStage.Items}"                               
+                                Grid.Row="3"
+                                Grid.RowSpan="10">
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate x:DataType="models:PregnancySections">
+
+                            <VerticalStackLayout Margin=" 15,10">
+                                <Label Text="{Binding Title}"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+
+                                <Label Text="{Binding Description}"
+                                LineBreakMode="WordWrap"
+                                MaxLines="0" />
+
+                            </VerticalStackLayout>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <BoxView HeightRequest="1" Color="SaddleBrown" Margin="12,0,12,0"/>
+
+
+                <Label Text="© 2026 Pia Fjäder &#10;&#10;Sisältö perustuu kirjallisuuteen ja tekijän ammatilliseen osaamiseen.
+                       &#10;&#10;Lähteet: Royal Canin – Practical Guide to Cat Breeding • William M. Burton – Expecting Whiskers • GCCF – Kitten Gestation
+                       &#10;&#10;Tieto on informatiivista eikä korvaa eläinlääkärin arviota." 
+                       Margin="15,10,15,5" FontSize="10" FontAttributes="Italic" TextColor="SaddleBrown"/>
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

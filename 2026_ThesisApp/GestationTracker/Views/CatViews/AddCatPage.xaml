@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:viewmodels="clr-namespace:GestationTracker.ViewModels"
+             x:Class="GestationTracker.Views.CatViews.AddCatPage"
+             x:DataType="viewmodels:AddCatViewModel"
+             Title="{Binding Title}"
+             Background="{StaticResource Primary}">
+
+    <Shell.TitleView>
+        <Label Text="{Binding Title}"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"/>
+    </Shell.TitleView>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Kissan kuva" 
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+
+            <Border StrokeThickness="2" StrokeShape="Rectangle"
+                    HeightRequest="250">
+                <Image Source="{Binding PhotoPath}" Aspect="AspectFit"
+                       IsVisible="{Binding PhotoPath, Converter={StaticResource StringIsNotNullOrEmptyConverter}}"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0" Text="Ota kuva" Command="{Binding TakePhotoCommand}"/>
+                <Button Grid.Column="1" Text="Valitse kuva" Command="{Binding PickPhotoCommand}"/>
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="Black" Margin="0,20"/>
+
+            <!--Yksittäisen kissan tiedot-->
+            <Label Text="Kissan tiedot:" FontSize="18" FontAttributes="Bold"/>
+
+            <Label Text="Nimi: *"/>
+            <Entry Text="{Binding CatName}" Placeholder="Syötä lemmikkisi kutsumanimi (pakollinen)"/>
+
+            <Label Text="Rekisteröity nimi:" />
+            <Entry Text="{Binding CatRegName}" Placeholder="Syötä kissan rekisteröity nimi"/>
+
+            <Label Text="Rekisterinumero:"/>
+            <Entry Text="{Binding CatRegNr}" Placeholder="Syötä kissan rekisterinumero"/>
+
+
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Label Text="Kissasi syntymäpäivä: " 
+                       Margin="0,12"
+                       Grid.Column="0" />
+                <DatePicker Date="{Binding CatDateofBirth}"
+                            Grid.Column="1"/>
+            </Grid>
+
+            <Label Text="Rotu"/>
+            <Picker x:Name="catBreedPicker" 
+                    Title="Valitse kissasi rotu" 
+                    ItemsSource="{Binding CatBreeds}"
+                    SelectedItem="{Binding CatBreed}">
+            </Picker>
+
+            <Label Text="Vakuutustiedot:"
+                   FontSize="18" FontAttributes="Bold"/>
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10"
+                  RowDefinitions="*,*" RowSpacing="10">
+                <Label Text="Vakuutusnumero:" 
+                       Margin="0,12"
+                       Grid.Column="0" Grid.Row="0"/>
+                <Entry Text="{Binding CatInsuranceNumber}" Placeholder="Syötä kissasi vakuutusnumero" 
+                       Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Vakuutusyhtiö:"
+                       Margin="0,12"
+                       Grid.Column="0" Grid.Row="1" />
+                <Picker SelectedItem="{Binding CatInsuranceCompany}" Grid.Column="1" Grid.Row="1" >
+                    <Picker.Items>
+                        <x:String>Agria</x:String>
+                        <x:String>Fennia</x:String>
+                        <x:String>IF</x:String>
+                        <x:String>LähiTapiola</x:String>
+                        <x:String>OP</x:String>
+                        <x:String>Pohjantähti</x:String>
+                        <x:String>Turva</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+            </Grid>
+
+            <!--Jos kissa on raskaana-->
+            <Grid ColumnDefinitions="150,20" ColumnSpacing="12">
+                <Label Text="Onko kissa raskaana?" Grid.Column="0"
+                       VerticalTextAlignment="Center"/>
+                <CheckBox IsChecked="{Binding IsPregnant}" 
+                          Grid.Column="1" HeightRequest="20" WidthRequest="20"/>
+            </Grid>
+
+            <!--Raskauden tietojen syöttäminen-->
+            <VerticalStackLayout IsVisible="{Binding IsPregnant}" Spacing="15">
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                    <Label Text="Astutuspäivä" Grid.Column="0" Margin="0,12"/>
+                    <DatePicker x:Name="matingDatePicker"
+                    Date="{Binding MatingDate}" 
+                    MaximumDate="{x:Static sys:DateTime.Today}" 
+                    MinimumDate="{Binding MinimumMatingDate}"
+                    Grid.Column="1"/>
+                </Grid>
+
+            </VerticalStackLayout>
+
+
+
+            <Button Text="Lisää kissa listalle" Command="{Binding SaveCatCommand}" Margin="0,20,0,0" />
+            <Button Text="Peruuta" Command="{Binding CancelCommand}" Margin="0,20,0,0" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

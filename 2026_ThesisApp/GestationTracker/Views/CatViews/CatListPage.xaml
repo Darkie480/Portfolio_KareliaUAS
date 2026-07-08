@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:GestationTracker.ViewModels"
+             xmlns:models="clr-namespace:GestationTracker.Models"
+             x:Class="GestationTracker.Views.CatViews.CatListPage"
+             x:DataType="viewmodels:CatListViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Primary}">
+
+    <Shell.TitleView>
+        <Label Text="{Binding Title}"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"/>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Lisää kissa" IconImageSource="catplus.png" Command="{Binding GoToAddCatCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,*">
+        <Border Grid.Row="0"
+                Padding="10,10"
+                Stroke="Black"
+                StrokeThickness="0">
+
+            <Label Text="Listalle lisätyt kissat"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+        </Border>
+
+        <RefreshView Grid.Row="1"
+                     Command="{Binding RefreshCommand}"
+                     IsRefreshing="{Binding IsBusy}">
+
+            <CollectionView ItemsSource="{Binding Cats}"
+                            SelectedItem="None">
+
+                <!--If the view is empty-->
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="20" VerticalOptions="Center" BackgroundColor="{StaticResource PrimaryDark}">
+
+                        <Label Text="Ei kissoja listattuna"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"
+                               Margin="0,0,0,5">
+                        </Label>
+                        <HorizontalStackLayout>
+                            <Label Text="Paina "
+                                   FontSize="16"
+                                   VerticalOptions="Center"/>
+
+                            <Image Source="catplus.png" HeightRequest="40" WidthRequest="40" VerticalOptions="Center" />
+
+                            <Label Text=" -kuvaketta oikeasta ylälaidasta." 
+                                   FontSize="16" VerticalOptions="Center"/>
+
+                        </HorizontalStackLayout>
+
+                        <Label Text="Lisää kissa-painike löytyy myös ☰ -valikon takaa." 
+                               FontSize="16" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                        
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <!--View with an item in it-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Cats">
+                        <Frame Padding="0"
+                               Margin="10,5"
+                               CornerRadius="10"
+                               HasShadow="False"
+                               BorderColor="Black">
+
+
+                            <!--Add tap gesture, makes the whole cat tappable-->
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CatListViewModel}}, Path=GoToDetailCommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="80,*,Auto"
+                                  Padding="10"
+                                  ColumnSpacing="10"
+                                  BackgroundColor="{StaticResource PrimaryDark}">
+                                <!--Cat image-->
+                                <Border Grid.Column="0"
+                                        StrokeThickness="1"
+                                        Stroke="Black"
+                                        StrokeShape="RoundRectangle 5"
+                                        HeightRequest="80"
+                                        WidthRequest="80">
+                                    <Image Source="{Binding ImageUrl}"
+                                           Aspect="AspectFit"/>
+                                </Border>
+
+                                <!--Cat info-->
+                                <VerticalStackLayout Grid.Column="1"
+                                                     VerticalOptions="Center"
+                                                     Spacing="3">
+                                    <Label
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        TextColor="Black">
+                                        <Label.Text>
+                                            <MultiBinding>
+                                                <MultiBinding.StringFormat>
+                                                    {0} - {1}
+                                                </MultiBinding.StringFormat>
+                                                <Binding Path="RegistrationName"/>
+                                                <Binding Path="Name"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+
+                                    <HorizontalStackLayout Spacing="5">
+                                        <Label Text="{Binding Breed}"
+                                               FontSize="13"
+                                               FontFamily="Courier"
+                                               TextColor="Black" />
+
+                                        <Label Text="|"
+                                               FontSize="13"
+                                               FontFamily="Courier"
+                                               TextColor="Black" />
+                                        <Label Text="{Binding RegistrationNumber}"
+                                               FontSize="13"
+                                               FontFamily="Courier"
+                                               TextColor="Black"/>
+                                    </HorizontalStackLayout>
+
+                                    <VerticalStackLayout IsVisible="{Binding IsPregnant}">
+                                        <Label Text="{Binding CurrentPregnancy.MatingDate, StringFormat='Astutettu {0:d}'}" 
+                                               FontSize="13"/>
+                                        <Label Text="{Binding CurrentPregnancy.DueDate.Date, StringFormat='Laskettu aika: {0:d}'}"
+                                               FontSize="13"/>
+                                    </VerticalStackLayout>
+
+                                </VerticalStackLayout>
+
+                                <!--Chevron indicator - shows the cat is tappable-->
+                                <Label Grid.Column="2"
+                                       Text=">"
+                                       FontAttributes="Bold"
+                                       FontSize="24"
+                                       TextColor="Black"
+                                       VerticalOptions="Center" />
+
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!--Loading indicator-->
+        <ActivityIndicator Grid.Row="1"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}"
+                           Color="{StaticResource Primary}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+
+
+    </Grid>
+</ContentPage>
