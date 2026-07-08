@@ -32,7 +32,6 @@ This portfolio contains selected school projects completed during my studies, sh
 - **Language:** Finnish
 
 ---
----
 
 ## About this portfolio
 The main purpose of this portfolio is to present selected coursework in a clear, accessible way.  
