@@ -25,6 +25,15 @@ This portfolio contains selected school projects completed during my studies, sh
 
 ---
 
+### [2026_ThesisApp](./2026_ThesisApp)
+- **Course:** Bachelor's Thesis  *(Work In Progress)*
+- **Content:** Source-code and images of the Cat Gestation Tracker-application created as a thesis.  
+- **Focus:** C#, .NET MAUI, MVVM architecture, cross-platform mobile development, JSON-data handling, user-friendly design.  
+- **Language:** Finnish
+
+---
+---
+
 ## About this portfolio
 The main purpose of this portfolio is to present selected coursework in a clear, accessible way.  
 README files are in English, but most of the course materials and reports are in Finnish, as required by the assignments and as Finnish has been the main language in our school.
