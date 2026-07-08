@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="GestationTracker.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GestationTracker"
+    xmlns:sharedViews="clr-namespace:GestationTracker.Views"
+    xmlns:catViews="clr-namespace:GestationTracker.Views.CatViews"
+   
+    Shell.BackgroundColor="{StaticResource PrimaryDark}"
+    Shell.ForegroundColor="Black"
+    Shell.TitleColor="Black"
+    Shell.UnselectedColor="Black"
+
+    FlyoutBackgroundColor="{StaticResource Primary}"
+    FlyoutBehavior="Flyout"
+    FlyoutWidth="225">
+
+     
+    <FlyoutItem Title="Kissalistaus" Icon="catlist.png">
+        <Tab>
+        <ShellContent ContentTemplate="{DataTemplate catViews:CatListPage}" 
+                      Route="CatListPage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Lisää kissa" Icon="catplus.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate catViews:AddCatPage}" 
+                  Route="AddCatPage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Kissan raskaus" Icon="catpreg.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate sharedViews:PregnancyInfoPage}"
+                          Route="PregnancyInfoPage" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Info" Icon="appinfo.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate sharedViews:InfoPage}"
+                          Route="InfoPage" />
+        </Tab>
+    </FlyoutItem>
+
+</Shell>

@@ -1,0 +1,26 @@
+﻿[
+  {
+    "id": "1",
+    "registrationName": "FI*Darkie's Dokujibara no tsubomi",
+    "registrationNumber": "FI SR RX 123456",
+    "dateofbirth": "2019-07-18",
+    "name": "Didi",
+    "insurancenumber": "800-800-111-222",
+    "insurancecompany":  "Agria",
+    "breed": "Ragdoll",
+    "imageUrl": "https://darkies.fi/lns/kuva/didi.jpg",
+    "dateAdded": "2026-02-24T16:15:00"
+  },
+  {
+    "id": "2",
+    "registrationName": "FI*Darkie's Shinobue",
+    "registrationNumber": "FI SR RX 223445",
+    "dateofbirth": "2022-10-15",
+    "name": "Bella",
+    "insurancenumber": "U-223-X88-O22",
+    "insurancecompany": "LähiTapiola",
+    "breed": "Ragdoll",
+    "imageUrl": "https://darkies.fi/lns/kuva/bella.jpg",
+    "dateAdded": "2026-02-24T16:07:00"
+  }
+]
